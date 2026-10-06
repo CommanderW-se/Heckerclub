@@ -1,24 +1,121 @@
-exitconditions =("exit")
-memory = {
-    ["hello", "hi", ] : "Hi"
-}
-def answer(userInput):
-    pass
+class analize:
+    def __init__(self,convMemory : dict):
+        self.userInputs = []
+        self.convMemory = convMemory
+        self.keyWord = {
+    "weather": [
+        "weather", "rain", "sunny", "cloud", "cloudy", "storm",
+        "snow", "temperature", "cold", "hot", "wind", "forecast"
+    ],
 
-def main():
-    print("""
-      ::::    ::: ::::::::::: ::::::::  :::    ::: :::::::::::          ::::::::  :::       ::: :::  
-     :+:+:   :+:     :+:    :+:    :+: :+:    :+:     :+:             :+:    :+: :+:       :+: :+:   
-    :+:+:+  +:+     +:+    +:+        +:+    +:+     +:+             +:+    +:+ +:+       +:+ +:+    
-   +#+ +:+ +#+     +#+    :#:        +#++:++#++     +#+             +#+    +:+ +#+  +:+  +#+ +#+     
-  +#+  +#+#+#     +#+    +#+   +#+# +#+    +#+     +#+             +#+    +#+ +#+ +#+#+ +#+ +#+      
- #+#   #+#+#     #+#    #+#    #+# #+#    #+#     #+#             #+#    #+#  #+#+# #+#+#  #+#       
-###    #### ########### ########  ###    ###     ###              ########    ###   ###   ##########    
-      """)
-    while True:
-        query = input("> ")
-        if query in exitconditions:
-            break
-        else:
-            answer(query)
-main
+    "food": [
+        "food", "eat", "eating", "hungry", "restaurant", "pizza",
+        "burger", "breakfast", "lunch", "dinner", "cook", "cooking"
+    ],
+
+    "school": [
+        "school", "teacher", "student", "class", "lesson", "homework",
+        "exam", "test", "study", "grade", "subject", "learning"
+    ],
+
+    "programming": [
+        "programming", "code", "python", "java", "javascript", "csharp",
+        "function", "variable", "class", "loop", "error", "bug", "developer"
+    ],
+
+    "computer": [
+        "computer", "pc", "laptop", "windows", "linux", "cpu",
+        "gpu", "ram", "storage", "keyboard", "mouse", "monitor"
+    ],
+
+    "gaming": [
+        "game", "gaming", "play", "player", "minecraft", "steam",
+        "console", "xbox", "playstation", "nintendo", "level", "boss"
+    ],
+
+    "music": [
+        "music", "song", "listen", "singer", "band", "album",
+        "guitar", "piano", "lyrics", "spotify", "concert"
+    ],
+
+    "movie": [
+        "movie", "film", "cinema", "actor", "actress", "director",
+        "series", "episode", "netflix", "character", "scene"
+    ],
+
+    "sports": [
+        "sport", "football", "soccer", "basketball", "tennis",
+        "player", "team", "match", "game", "score", "goal", "coach"
+    ],
+
+    "travel": [
+        "travel", "trip", "holiday", "vacation", "hotel", "flight",
+        "airport", "train", "country", "city", "visit", "tourist"
+    ],
+
+    "health": [
+        "health", "doctor", "hospital", "medicine", "sick", "pain",
+        "fever", "headache", "symptom", "treatment", "illness"
+    ],
+
+    "money": [
+        "money", "price", "cost", "buy", "sell", "bank", "payment",
+        "cash", "salary", "expensive", "cheap", "budget"
+    ],
+
+    "shopping": [
+        "shop", "shopping", "buy", "product", "store", "price",
+        "discount", "order", "delivery", "cart", "sale"
+    ],
+
+    "cars": [
+        "car", "vehicle", "engine", "drive", "driving", "wheel",
+        "tire", "fuel", "petrol", "diesel", "electric", "tesla"
+    ],
+
+    "animals": [
+        "animal", "dog", "cat", "bird", "fish", "horse",
+        "pet", "wildlife", "zoo", "species"
+    ],
+
+    "science": [
+        "science", "physics", "chemistry", "biology", "experiment",
+        "research", "theory", "scientist", "molecule", "atom"
+    ],
+
+    "math": [
+        "math", "mathematics", "calculate", "equation", "number",
+        "formula", "geometry", "algebra", "fraction", "percentage"
+    ],
+
+    "internet": [
+        "internet", "website", "browser", "online", "google",
+        "wifi", "network", "server", "download", "upload"
+    ],
+
+    "cybersecurity": [
+        "security", "cybersecurity", "hacker", "password", "firewall",
+        "malware", "virus", "network", "encryption", "attack", "vulnerability"
+    ],
+
+    "artificial_intelligence": [
+        "ai", "artificial", "intelligence", "chatgpt", "model",
+        "neural", "machine", "learning", "prompt", "llm", "algorithm"
+    ]
+}
+
+    def answer(self,uInput):
+        topic = set()
+        for key, items in self.keyWord.items():
+            for item in items:
+                if item in uInput:
+                    topic.add(key)
+        return topic
+
+
+test = analize([])
+
+print("Hello wanderer.")
+uInput = input("> ")
+print(test.answer(uInput.lower()))
+ 
